@@ -42,39 +42,39 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="text" name="name" placeholder="Full Name">
+						<input class="input100" type="text" name="name" placeholder="Full Name" required>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="address" placeholder="Address">
+						<input class="input100" type="text" name="address" placeholder="Address" required>
 						<span class="focus-input100"></span>
 					</div>
 
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="text" name="phone" placeholder="Phone #">
+						<input class="input100" type="text" name="phone" placeholder="Phone Number" required>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="email" name="email" placeholder="Email">
+						<input class="input100" type="email" name="email" placeholder="Email" required>
 						<span class="focus-input100"></span>
 					</div>
 
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="Password" name="pass" placeholder="Password">
+						<input class="input100" type="Password" name="pass" placeholder="Password" required>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="Password" name="conpass" placeholder="Confirm Password">
+						<input class="input100" type="Password" name="conpass" placeholder="Confirm Password" required>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="file" name="aadharfile">
+						<input class="input100" type="file" name="aadharfile" required>
 						<span class="focus-input100"></span>
 						<span class="label-input100">ID Proof</span>
 					</div>

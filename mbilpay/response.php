@@ -1,7 +1,7 @@
 <?php
 $t=$_GET['t'];
 include('../connection.php');
-header( "refresh:8;url=../customer/bookinghistory.php" );
+header( "refresh:5;url=../customer/bookinghistory.php" );
 $postdata = $_POST;
 $msg = '';
 if (isset($postdata ['key'])) {

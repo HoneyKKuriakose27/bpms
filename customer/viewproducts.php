@@ -1,5 +1,7 @@
 <?php
-session_start();
+    session_start();
+    if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+    { 
 unset($_SESSION["cart_item"]);
   include '../connection.php';
   include 'customerheader.php';
@@ -72,4 +74,9 @@ unset($_SESSION["cart_item"]);
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'customerfooter.php'; ?>
+            <?php include 'customerfooter.php'; }
+    else
+    {
+        Header("location:../index.php");
+    }
+?>

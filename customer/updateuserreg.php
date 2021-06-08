@@ -20,10 +20,10 @@
 	
 	if($result && $res)
 	{
-		echo "<SCRIPT type='text/javascript'>alert('Updation Successfull');window.location.replace(\"customerhome.php\"); </SCRIPT>";
+		echo "<SCRIPT type='text/javascript'>alert('Updation Successfull');window.location.replace(\"index.php\"); </SCRIPT>";
 	}
 	else
 	{
-		echo "<SCRIPT type='text/javascript'>alert('Updation Failed.');window.location.replace(\"customerhome.php\");</SCRIPT>";
+		echo "<SCRIPT type='text/javascript'>alert('Updation Failed.');window.location.replace(\"index.php\");</SCRIPT>";
 	}
 ?>

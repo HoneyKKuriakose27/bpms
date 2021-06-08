@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+    { 
   include '../connection.php';
   include 'adminheader.php';
 
@@ -78,7 +81,8 @@ if($s==0)
 else
 {
     echo "<b><font color='green'>Paid</font></b>"; ?>&nbsp; <a href="../fpdf/servicebillpaid.php?t=<?php echo $row['bk_key']; ?>" download>
-    <button type="button" class="btn btn-outline-success" ><i class="fas fa-download">&nbsp;Reciept</i></button></a> <?php
+    <button type="button" class="btn btn-outline-success" ><i class="fas fa-download">&nbsp;Reciept</i></button></a>
+<a href='assignstaff.php?t=<?php echo $row['bk_key'] ?>'><button type="button" class="btn btn-outline-info" >Assign Staff</button></a> <?php
     
  }
                  ?></td>
@@ -94,4 +98,9 @@ else
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'adminfooter.php'; ?>
+            <?php include 'adminfooter.php';}
+    else
+    {
+        Header("location:../index.php");
+    }
+?>

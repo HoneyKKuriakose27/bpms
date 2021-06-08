@@ -37,7 +37,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="staffhome.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -49,7 +49,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="staffhome.php">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Homepage</span></a>
             </li>
@@ -62,41 +62,44 @@
                 Services
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu 
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fab fa-product-hunt"></i>
-                    <span>Products</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Services</h6>
-                        <a class="collapse-item" href="viewproducts.php">View</a>
-                        <a class="collapse-item" href="productbookings.php">Booking History</a>
-                    </div>
-                </div>
-            </li>
-
+         <!--    Nav Item - Pages Collapse Menu  -->
+             
             
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-shapes"></i>
-                    <span>Services</span>
+                    <span>Works</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Services</h6>
-                        <a class="collapse-item" href="viewservice.php">View</a>
-                        <a class="collapse-item" href="bookinghistory.php">Booking History</a>
+                        <h6 class="collapse-header">Daily Jobs</h6>
+                        <a class="collapse-item" href="viewservicebooking.php">Service Bookings</a>
+                        <a class="collapse-item" href="viewservice.php">Daily Works</a>
                     </div>
                 </div>
             </li>
 
-            <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-tools"></i>
+                    <span>Utilities</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Services</h6>
+                        <a class="collapse-item" href="viewattendance.php">Attendance</a>
+                        <a class="collapse-item" href="applyleave.php">Apply Leave</a>
+                        <a class="collapse-item" href="viewleave.php">Leave Status</a>
+                    </div>
+                </div>
+            </li>
 
+
+            <hr class="sidebar-divider d-none d-md-block">
+<!-- 
              Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -182,10 +185,10 @@ while ($row=mysqli_fetch_array($result))
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="editstaff.php">
+                               <!--  <a class="dropdown-item" href="editstaff.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="passchange.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Password Change

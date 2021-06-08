@@ -1,5 +1,7 @@
 <?php
-session_start();
+    session_start();
+    if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+    { 
 include 'customerheader.php';
 if(isset($_GET['t']))
 {
@@ -190,4 +192,9 @@ if(isset($_SESSION["cart_item"])){
 	<?php
 include 'customerfooter.php';
 
+}
+    else
+    {
+        Header("location:../index.php");
+    }
 ?>

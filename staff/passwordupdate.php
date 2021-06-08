@@ -21,7 +21,7 @@
     if($ex1)
     {
       echo "<SCRIPT type='text/javascript'>alert('Password Updated Successfully');
-       window.location.replace(\"customerhome.php\");
+       window.location.replace(\"index.php\");
      </SCRIPT>";
     }
     else

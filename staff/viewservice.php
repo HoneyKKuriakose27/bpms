@@ -1,8 +1,11 @@
 <?php
+    session_start();
+    if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+    { 
   include '../connection.php';
-  include 'customerheader.php';
+  include 'staffheader.php';
 
-  $sql = "select * from tb_servicecat  where delstatus!='1' order by catid desc ";// echo $sql;exit;
+  $sql="select * from tb_assignwork inner join tb_staffreg on tb_staffreg.engid=tb_assignwork.wkstaffid inner join tb_booking on tb_booking.bk_key=tb_assignwork.wkbkkey inner join tb_servicesubcat on tb_servicesubcat.scatid=tb_booking.bk_subcatid where dateonly='".date('Y-m-d')."' order by wkid desc"; //echo $sql;exit;
   $result = mysqli_query($conn,$sql);
 ?>
 
@@ -23,29 +26,75 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-					                                  <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Sub Category</th>
+                                           <th>#</th>
+                            <th>Full Name</th> 
+                            <th>Address</th>
+                            <th>Service Name</th>
+                            <th>Booking Date - Time Slot</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Mark As</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-					                                <th>#</th>
-                                            <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Sub Category</th>
+                                           <th>#</th>
+                            <th>Full Name</th> 
+                            <th>Address</th>
+                            <th>Service Name</th>
+                            <th>Booking Date - Time Slot</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Mark As</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                       <?php $count=1; while ($row=mysqli_fetch_array($result))
                       {  ?>
                                         <tr>
-					                                  <td><?php echo $count++; ?></td>
-                                            <td><?php echo $row['catname']; ?></td>
-                                            <td><?php echo $row['catdesc']; ?></td>
-                                            <td><a href="viewservicesubcategory.php?t=<?php echo $row['catkey']; ?>"><button class="btn btn-outline-primary">View</button></a></td>
-                                            
+                                                      <td><?php echo $count++; ?></td>
+                                            <td><?php echo $row['bk_fullname']; ?></td>
+                                            <td><?php echo $row['bk_address']; ?></td>
+                                            <td><?php  echo $row['scatname'];?></td>
+
+                    <td><?php  echo $row['bk_apdate']." - ".$row['bk_timeslot'];?></td>
+                    <td><?php  echo $row['wkdesc'];?></td>
+                   
+                                            <td><?php  $s=$row['wkstatus'];
+if($s==0)
+{
+    echo "<b><font color='red'>Pending</font></b>"; 
+}
+if($s==1)
+{
+
+    echo "<b><font color='red'>In Progress</font></b>";
+}
+if($s==2)
+{
+
+    echo "<b><font color='red'>Completed</font></b>";
+}
+?> </td>
+                                   <td><?php  $s=$row['wkstatus'];
+if($s==0)
+{ ?>
+    <a href="inprogress.php?t=<?php echo $row['wkkey']; ?>"><button class="btn btn-outline-info">In Progress</button></a> 
+
+<?php }
+if($s==1)
+{ ?>
+
+    <a href="completed.php?t=<?php echo $row['wkkey']; ?>"><button class="btn btn-outline-info">Completed</button></a> 
+<?php 
+}
+if($s==2)
+{ 
+
+    echo "<b><font color='red'>Completed</font></b>";
+
+}
+?> </td>        
                                         </tr>
                       <?php } ?>
                                     </tbody>
@@ -57,4 +106,9 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'customerfooter.php'; ?>
+            <?php include 'stafffooter.php'; }
+    else
+    {
+        Header("location:../index.php");
+    }
+?>

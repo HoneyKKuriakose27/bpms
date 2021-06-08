@@ -18,7 +18,7 @@
 	$filekey=$firstname.$pin;
 
   $engkey=md5(microtime());
-  $engineerkey=substr($engkey,0,10);
+  $engineerkey=substr($engkey,0,8);
 
   $pass = md5($filekey);
 

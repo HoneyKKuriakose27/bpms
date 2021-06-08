@@ -40,6 +40,6 @@
     }
     else
     {
-      echo "<script>alert('Login Details Mailed to the BPMS Staff.');window.location.href='adminhome.php';</script>";
+      echo "<script>alert('Login Details Mailed to the BPMS Staff.');window.location.href='index.php';</script>";
     }
 ?>

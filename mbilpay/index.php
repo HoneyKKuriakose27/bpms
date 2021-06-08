@@ -125,7 +125,7 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
     
     <div class="dv">
     <span class="text"><label>Email:</label></span>
-    <span><input type="text" id="email" name="email" placeholder="Email ID" value="" /></span>
+    <span><input type="text" id="email" name="email" placeholder="Email ID" value="" required/></span>
     </div>
     
     

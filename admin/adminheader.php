@@ -35,7 +35,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="adminhome.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-store"></i>
                 </div>
@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="adminhome.php">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Homepage</span></a>
             </li>
@@ -141,6 +141,52 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesss"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-history"></i>
+                    <span>Duty Alloted</span>
+                </a>
+                <div id="collapseUtilitiesss" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Services</h6>
+                        <a class="collapse-item" href="viewassigntask.php">View</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiessss"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-tools"></i>
+                    <span>Leave Requests</span>
+                </a>
+                <div id="collapseUtilitiessss" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Details</h6>
+                        <a class="collapse-item" href="viewleave.php">View</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiessssz"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                    <span>Job Vacancy</span>
+                </a>
+                <div id="collapseUtilitiessssz" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Details</h6>
+                        <a class="collapse-item" href="addjob.php">Add Jobs</a>
+                        <a class="collapse-item" href="viewjobs.php">View Jobs</a>
+                        <a class="collapse-item" href="viewappliedjobs.php">View Applications</a>
+                    </div>
+                </div>
+            </li>
             
 
             <li class="nav-item">
@@ -153,6 +199,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Downloads</h6>
+                        <a class="collapse-item" href="viewattendance.php">Staff Attendance</a>
                         <a class="collapse-item" href="../fpdf/staffreport.php" download="">Staff Details</a>
                         <a class="collapse-item" href="../fpdf/userreport.php" download="">User Details</a>
                         <a class="collapse-item" href="../fpdf/productreport.php" download="">Products Details</a>

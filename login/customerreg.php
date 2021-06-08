@@ -30,7 +30,7 @@
     if($ex1 && $ex2)
   	{
       $path="../admin/Uploads/".$k2;
-      mkdir($path);
+      mkdir($path,0777);
       move_uploaded_file($_FILES['aadharfile']["tmp_name"],$path."/".$_FILES['aadharfile']["name"]);
       echo "<SCRIPT type='text/javascript'>alert('Registration Successful');
        window.location.replace(\"login.php\");

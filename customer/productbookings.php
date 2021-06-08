@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+    { 
   include '../connection.php';
   include 'customerheader.php';
 
@@ -103,4 +106,9 @@ $cnt=$cnt+1;
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'customerfooter.php'; ?>
+            <?php include 'customerfooter.php'; }
+    else
+    {
+        Header("location:../index.php");
+    }
+?>

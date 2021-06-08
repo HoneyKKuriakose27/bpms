@@ -1,4 +1,7 @@
-<?php session_start();
+<?php
+    session_start();
+    if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+    { 
   include '../connection.php';
   include 'customerheader.php';
 
@@ -91,20 +94,28 @@ while ($row=mysqli_fetch_array($ret)) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body"><form action="appointmentreg.php" method="post">
-         <input type="text" class="form-control" id="fname" name="fname" placeholder="Full Name" value="" required="true"> <br>
-         <input type="email" class="form-control" id="email" name="email" placeholder="Email ID" value="" required="true"> <br>
-         <textarea placeholder="Enter your Address here...." name="address" class="form-control"></textarea><br><label for="exampleInputEmail1">Appointment Date</label>
-         <input type="date" class="form-control" id="apdate" name="apdate" value="" required="true">
+      <div class="modal-body"><form action="appointmentreg.php" method="post" id="myForm">
+         <input type="text" class="form-control" name="fname" placeholder="Full Name"  id="tnames" onkeyup="travelNames()">
+         <span style="color: red;font-size: 14px" id="tna"></span> <br>
+         <input type="email" class="form-control" name="email" placeholder="Email ID"  id="email" onkeyup="emailUser()">
+                            <span style="color: red;font-size: 14px" id="f3"></span> <br>
+         <textarea placeholder="Enter your Address here...." name="address" class="form-control" id="address" onkeyup="addrUser()"></textarea>
+                            <span style="color: red;font-size: 14px" id="f4"></span><br>
+                            <label for="exampleInputEmail1">Appointment Date</label>
+         <input type="date" class="form-control"  name="apdate" id="sdate" onfocusout="startDate()">
+                                    <span style="color: red;font-size: 14px" id="s1"></span>
          <br>
-         <select class="form-control" name="slot">
+         <select class="form-control" name="slot" id="district" onclick="distUser()">
           <option value="null">Select Time Slot</option>
           <option value="9am - 10am">9am - 10am</option>
           <option value="10am - 11am">10am - 11am</option>
           <option value="11am - 12pm">11am - 12pm</option>
           <option value="1pm - 2pm">1pm - 2pm</option> 
-         </select><br>
-         <input type="phone" class="form-control" id="apdate" name="phone" placeholder="Phone Number" value="" required="true">
+         </select>
+         <span style="color: red;font-size: 14px" id="f7"></span>
+         <br>
+         <input type="phone" class="form-control" name="phone" placeholder="Phone Number" id="phone" onkeyup="phoneUser()">
+                                    <span style="color: red;font-size: 14px" id="f5"></span>
          <br>
          <input type="hidden" name="userid" value="<?php echo $_COOKIE["lkey"]; ?>">
          <input type="hidden" name="catid" value="<?php echo $row['catid'] ?>">
@@ -113,12 +124,139 @@ while ($row=mysqli_fetch_array($ret)) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Book</button>
+        <button type="button" class="btn btn-primary" onclick="checkAlls()">Book</button>
       </div></form>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    function distUser() {
+
+        var f7 = document.getElementById("f7");
+        var district = document.getElementById('district').value;
+
+        if(district=="null")
+         {
+           f7.textContent = "**Select any Time Slot";
+           document.getElementById("district").focus();
+           return false;
+         }
+         else
+         {
+            f7.textContent = "";
+            return true;
+         }
+    }
+
+    function addrUser() {
+        var f4 = document.getElementById("f4");
+        var address = document.getElementById('address').value;
+
+        if (!/^[#.0-9a-zA-Z\s,-]{8,50}$/.test(address))
+         {
+           f4.textContent = "**Invalid Address Format";
+           document.getElementById("address").focus();
+           return false;
+         }
+         else
+         {
+            f4.textContent = "";
+            return true;
+         }
+    }
+
+    function phoneUser() {
+        var f5 = document.getElementById("f5");
+        var phone = document.getElementById('phone').value;
+
+        if(!/^[6-9]{1}[0-9]{9}$/.test(phone))
+         {
+           f5.textContent = "**Invalid Phone # Format";
+           document.getElementById("phone").focus();
+           return false;
+         }
+         else
+         {
+            f5.textContent = "";
+            return true;
+         }
+    }
+
+    function startDate() {
+
+        var s1 = document.getElementById("s1");
+        var sdate = document.getElementById('sdate').value;
+
+        if(sdate=="")
+         {
+           s1.textContent = "**Select Any Appointment Date";
+           document.getElementById("sdate").focus();
+           return false;
+         }
+         else
+         {
+            s1.textContent = "";
+            return true;
+         }
+    }
+
+
+    function emailUser() {
+        var f3 = document.getElementById("f3");
+        var email = document.getElementById('email').value;
+
+        if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email))
+         {
+           f3.textContent = "**Invalid Email Format";
+           document.getElementById("email").focus();
+           return false;
+         }
+         else
+         {
+            f3.textContent = "";
+            return true;
+         }
+    }
+
+    function travelNames() {
+        var f1s = document.getElementById("tna");
+        var fname = document.getElementById('tnames').value;
+
+        if(!/^[A-Za-z ]{3,56}$/.test(fname))
+         {
+           f1s.textContent = "**Invalid Full Name";
+           var x = document.getElementById("tnames");
+           x.focus();
+           return false;
+         }
+         else
+         {
+            f1s.textContent = "";
+            return true;
+         }
+    }
+
+    
+
+    function checkAlls(){
+    if(travelNames()&&emailUser()&&addrUser()&&startDate()&&distUser()&&phoneUser())
+     {
+       document.getElementById("myForm").submit();
+     }
+     else
+     {
+        return false;
+     }
+}
+
+</script>
 <?php } ?>
                 <!-- /.container-fluid -->
 
-            <?php include 'customerfooter.php'; ?>
+            <?php include 'customerfooter.php'; }
+    else
+    {
+        Header("location:../index.php");
+    }
+?>
